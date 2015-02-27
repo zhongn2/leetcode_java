@@ -20,6 +20,10 @@ public class Solution {
             if(target < cans[i]){
                 break;
             }
+			// sum 2 is to avoid the duplicate num
+			 if(i != pos && cans[i] == cans[i-1]){
+               continue;
+           }
             path.add(cans[i]);
             comSumhelper(cans, target - cans[i], result, path, i);
             path.remove(path.size() - 1);
