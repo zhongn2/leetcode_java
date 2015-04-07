@@ -13,7 +13,7 @@ public class Solution {
     }
     public void comSumhelper(int[] cans, int target, List<List<Integer>> result,  ArrayList<Integer> path, int pos){
         if(target == 0){
-            result.add(new  ArrayList<Integer>(path));
+            result.add(new ArrayList<Integer>(path));
             return;
         }
         for(int i = pos; i < cans.length; i++){
