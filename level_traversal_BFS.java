@@ -17,6 +17,7 @@ public class Solution {
         Queue<TreeNode> q = new LinkedList<TreeNode>();
         q.add(root);
         while(!q.isEmpty()){
+			// here level is temporary, it needs to be initialized every time
             ArrayList<Integer> level = new ArrayList<Integer>();
             int Qsize = q.size();
             for(int i = 0; i < Qsize; i++){
