@@ -23,7 +23,9 @@ public class Solution {
         if(root.equals(A) || root.equals(B)){
             return root;
         }
-        
+        //相当于你去左边找A，右边找B
+		// 如果两边都找到，则说明最初的root是LCA
+		// 如果一边为NULL，则说明A AND B在同一边，返回不为NULL的一边即可
         TreeNode left = lowestCommonAncestor(root.left, A, B);
         TreeNode right = lowestCommonAncestor(root.right, A, B);
         
@@ -31,5 +33,33 @@ public class Solution {
             return root;
         }
         return left != null ? left : right;
+    }
+}
+
+// Situation change to BST, it becomes easy
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if(root == null) return null;
+        if(p.equals(root) || q.equals(root)){
+            return root;
+        }
+        
+        if(p.val < root.val && q.val < root.val){
+            return lowestCommonAncestor(root.left, p, q);
+        }else if(p.val > root.val && q.val > root.val){
+            return lowestCommonAncestor(root.right, p, q);
+        }else{
+            return root;
+        }
+        
     }
 }
