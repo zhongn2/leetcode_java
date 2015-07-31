@@ -3,7 +3,14 @@ corner cases:
 1. sign = 1 / -1;
 2. INT_MAX AND INT_MIN
 3. convert long to int at the end
-
+ /*
+    empty string/ null
+    white space
+    sign(-, +)
+    real value
+    check max and min
+        
+ */
 
 */
 

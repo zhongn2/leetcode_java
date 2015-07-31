@@ -6,7 +6,7 @@ public class Solution {
         String[] words = s.split(" ");
         StringBuilder sb = new StringBuilder();
         for(int i = words.length - 1; i >= 0; i--){
-            if(!words[i].equals("")){
+            if(!words[i].equals("")){ // or if(words[i].length() != 0) // which means the string is not empty, if it is empty ,don't put into sb
            // equals applied in the object,every object has the equals method
            // it can be overrriden and it compares with the local memory address
                 sb.append(words[i]).append(" ");
