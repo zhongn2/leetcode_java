@@ -22,7 +22,7 @@ public class Solution {
         ListNode move = newhead;
         int carry = 0;
         while(l1 != null && l2 != null){
-           int sum = l1.val + l2.val + carry;
+           int sum = l1.val + l2.val + carry; // carry should be added in the sum
            move.next = new ListNode(sum % 10);
            carry = sum / 10;
            l1 = l1.next;
@@ -47,6 +47,7 @@ public class Solution {
            l2 = l2.next;
            move = move.next;
         }
+		// reach the end and it turns out sum > 10
         if(carry != 0){
             move.next = new ListNode(1);
         }

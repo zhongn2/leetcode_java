@@ -1,7 +1,11 @@
 
-// this question combine doublely linked list with hashmap
-// how to design the composition in the class and how to insert and delete linked list node should
-// be the most important basic thing in this problem
+/*
+这道题，如果使用linkedhashmap，因为传入的数字是有序的，所以删除和加入完全不影响order
+但是如果只是hashmap，没有办法track顺序，只能用双向链表记录改变的Node的前后指针
+
+
+*/
+
 
 public class LRUCache {
     private class Node{

@@ -1,35 +1,41 @@
+/*
+	最多允许两次买卖，无论如何，两次买卖处于不同的区间里，我们相当于分割了整个数组
+	左边scan一次，得到每个分割位置的最大利润值[0....i]
+	再右边scan一次，得到右边每个位置的最大利润值[i+1..... end]
+	最后取一个最大值
+
+*/
+
 public class Solution {
     public int maxProfit(int[] prices) {
-        if(prices == null || prices.length <= 1){
-            return 0;
+        if(prices == null || prices.length <= 1) return 0;
+        
+        int len = prices.length;
+        int[] left = new int[len];
+        int[] right = new int[len];
+
+        left[0] = 0;
+        int min  = prices[0];
+        
+        for(int i = 1; i < len; i++){
+            min = Math.min(min, prices[i]);
+            left[i] = Math.max(left[i-1], prices[i] - min);
         }
-        int[] maxLeft = new int[prices.length];
-        int[] maxRight = new int[prices.length];
+        
+        right[len-1] = 0;
+        int max = prices[len-1];
+        
+        for(int i = len -2; i > 0; i--){
+            max = Math.max(max, prices[i]);
+            right[i] = Math.max(right[i+1], max - prices[i]);
+        }
+        
         int profit = 0;
         
-        int m = prices[0];
-        maxLeft[0] = 0;
-        // every ith stock is calculated by the i-1 stock
-        // from left to the right and it is for the buy price
-        for(int i = 1; i < prices.length; i++){
-            m = Math.min(m, prices[i]);
-            maxLeft[i] = Math.max(maxLeft[i-1], prices[i] - m);
-        }
-        // from right to the left
-        // for the sell price
-        int n = prices[prices.length - 1];
-        maxRight[prices.length - 1] = 0;
-        for(int i = prices.length - 2; i >= 0; i--){
-            n = Math.max(n, prices[i]);
-            maxRight[i] = Math.max(maxRight[i+1], n - prices[i]);
-        }
-        // for the whole array
-        for(int i = 0; i < prices.length; i++){
-            profit = Math.max(profit, maxLeft[i] + maxRight[i]);
-            
+        for(int i = 0; i < len; i++){
+            profit = Math.max(profit, left[i] + right[i]);
         }
         
         return profit;
- 
     }
 }
