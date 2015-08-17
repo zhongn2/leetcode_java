@@ -27,7 +27,6 @@ public class Solution {
 	所以不考虑次数，我们比较 2 5 8， sum = (5-2) + (8-5) = (8-2)
 	最后再将local的值相加得到最后的结果
 
-
 */
 public class Solution {
     public int maxProfit(int[] prices) {

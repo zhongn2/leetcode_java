@@ -25,6 +25,30 @@ public class Solution {
         
         return sum;
     }
+	//这里的逻辑是从前往后，当前的数是+还是- 取决去后面的数
+	// 在for循环里，，
+	//判断后面一位的时候，都是加，所以当i已经到了尾巴，直接加上，为了不越界
+	/*
+	 public int romanToInt(String s) {
+        if(s == null || s.length() == 0) return 0;
+        
+        char[] arr = s.toCharArray();
+        int sum = 0, curr;
+        
+        for(int i = 0; i < arr.length; i++){
+            curr = RomanTable(arr[i]);
+            
+            if(i == arr.length - 1  || RomanTable(arr[i + 1])<= curr ){
+                sum += curr;
+            }else{
+                sum -= curr;
+            }
+        }
+        return sum;
+       
+    }
+	
+	*/
     
     public int RomanTable(char c){
         int num = 0;
@@ -39,6 +63,33 @@ public class Solution {
             case 'M': num = 1000; break;
         }
         
+        return num;
+    }
+}
+
+
+// solution 2
+public class Solution {
+    public int romanToInt(String s) {
+        Map<Character, Integer> romans = new HashMap<Character, Integer>();
+        romans.put('I', 1);
+        romans.put('V', 5);
+        romans.put('X', 10);
+        romans.put('L', 50);
+        romans.put('C', 100);
+        romans.put('D', 500);
+        romans.put('M', 1000);
+        char[] cs = s.toCharArray();
+        int num = 0;
+        int val;
+        for (int i = 0; i < cs.length; i++) {
+            val = romans.get(cs[i]);
+            if (i == cs.length - 1 || romans.get(cs[i + 1]) <= val) {
+                num += val;
+            } else {
+                num -= val;
+            }
+        }
         return num;
     }
 }
