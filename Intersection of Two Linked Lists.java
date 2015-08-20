@@ -21,10 +21,10 @@ public class Solution {
         int lenA = getLength(headA);
         int lenB = getLength(headB);
         int diff = Math.abs(lenA - lenB);
-        return lenA > lenB ? getNode(headB, headA, diff) : getNode(headA, headB, diff);
-        
-        
+        return lenA > lenB ? getNode(headB, headA, diff) : getNode(headA, headB, diff);  
     }
+	// we make sure that headA is always greater than headB, so the new function is only for one condition, but we 
+	// can choose different parameters
     public ListNode getNode(ListNode h1, ListNode h2, int len){
         ListNode result = new ListNode(-1);
             while(len > 0){
@@ -40,6 +40,7 @@ public class Solution {
                     h1 = h1.next;
                     h2 = h2.next;
             }
+			// reach the end of both linkedlists
             if(h1 == null || h2 == null){
                 return null;
             }

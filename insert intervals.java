@@ -14,7 +14,6 @@
  // when updating intervals, i should be i-- and insert the new interval into right place
 public class Solution {
     public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
-        ArrayList<Interval> result = new ArrayList<Interval>();
         if(newInterval == null){
             return intervals;
         }

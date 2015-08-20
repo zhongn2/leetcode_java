@@ -15,8 +15,7 @@ public class Solution {
         int index = 0;
         for(int i = 0; i < nums.length; i++){
             if(nums[i] != nums[index]){
-                index++;
-                nums[index] = nums[i];
+                nums[++index] = nums[i];
             }
         }
         return index + 1;
@@ -24,3 +23,21 @@ public class Solution {
 }
 
 //Remove Duplicates from Sorted Array II 
+/*
+follow up 是允许数列中每个数字出现次数为N,其实大同小异
+index = n；
+
+*/
+
+public class Solution {
+    public int removeDuplicates(int[] nums， int n) {
+        if(nums.length == 0 || nums == null) return 0;
+        int index = n;
+        for(int i = n; i < nums.length; i++){
+            if(nums[i] != nums[i - n]){
+                nums[index++] = nums[i];
+            }
+        }
+        return index;
+    }
+}
