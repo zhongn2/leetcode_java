@@ -1,28 +1,38 @@
-// rotate is very similar with the string
- // the difference is we add two string together easier.
- // here we need to iterate the whole list and connect to be a circle
- // then move length - length % n to find the new head
+/*
+	实际上和rotate string 一样的原因是我们先让linkedlist的 end 连接上了头，
+	然后去寻找新的头结点，并把尾巴节点指向空
+
+
+
+*/
 public class Solution {
-    public ListNode rotateRight(ListNode head, int n) {
-       if(head == null || n == 0) return head;
-       ListNode p = head;
-       int len = 0;
-       while(p.next != null){
-           len++;
-           p = p.next;
-       }
-        p.next = head; // connect the end with start
-       int k = len - n % len; // find the new head position
-       ListNode newhead = p;
-	   
-       while( k > 0){
-           newhead = newhead.next;
-           k--;
-       }
-       head = newhead.next;
-       newhead.next = null;
-       return head;
+    public ListNode rotateRight(ListNode head, int k) {
+        if(head == null || k == 0) return head;
+        ListNode node = head;
+        
+        int len = 1;
+        while(node.next != null){
+            len++;
+            node = node.next;
+        }
+        // node  现在是尾节点，而不是null
+       node.next = head; 
+        
+        int m = len - (k % len);
+        ListNode prehead = node;
+        while(m > 0){
+            prehead = prehead.next;
+            m--;
+        }
+        // head 就是新的头结点
+        head = prehead.next;
+		//prehead就是尾节点
+        prehead.next = null;
+        
+        
+        return head;
     }
+    
 }
        
        
