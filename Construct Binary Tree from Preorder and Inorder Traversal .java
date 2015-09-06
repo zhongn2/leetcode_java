@@ -7,6 +7,13 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
+ /*
+ 两个关键点： 1. 为什么想到使用hashmap？
+				使用hashmap，可以方便的获得root所在的index，然后迭代的时候就能够知道左树和右树的长度
+			  2. 
+ 
+ 
+ */
 public class Solution {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         if(preorder == null || inorder == null) return null;

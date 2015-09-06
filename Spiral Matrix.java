@@ -8,6 +8,8 @@ public class Solution {
         int[][] result = new int[n][n];
         int start = 1;
         int x = 0, y = 0;
+		//这里的i相当于迭代处理，外层循环 结束后才能进入内层循环。
+		//每次递减2，左右两边都有元素，直到遇到中间的元素为止
         for(int i = n; i > 0; i -= 2){
             if(i == 1){
                 result[x][y] = start;
@@ -36,3 +38,9 @@ public class Solution {
         return result;
     }
 }
+
+/*
+follow-up: 如果从中间打印开始，也就是x, y的初始变了
+
+
+*/

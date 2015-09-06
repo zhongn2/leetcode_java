@@ -5,6 +5,8 @@
  *     List<UndirectedGraphNode> neighbors;
  *     UndirectedGraphNode(int x) { label = x; neighbors = new ArrayList<UndirectedGraphNode>(); }
  * };
+ * 使用arrayList代替queue是因为存的node在接下来里仍然使用，所以用了一个start来记录size
+ *
  */
 public class Solution {
     public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {

@@ -25,3 +25,20 @@ public class Solution {
         
     }
 }
+// solution 2
+ public class Solution {
+    public void connect(TreeLinkNode root) {
+        if(root == null) return;
+        TreeLinkNode node = root;
+        
+        while(node != null && node.left != null){
+            TreeLinkNode curr = node; // each level iteration,starts from left to right
+            while(curr != null){
+                curr.left.next = curr.right;
+                curr.right.next = curr.next == null ? null : curr.next.left;
+                curr = curr.next;
+            }
+            node = node.left;
+        }
+    }
+}

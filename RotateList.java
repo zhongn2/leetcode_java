@@ -23,7 +23,7 @@ public class Solution {
         while(m > 0){
             prehead = prehead.next;
             m--;
-        }
+        }ListNode
         // head 就是新的头结点
         head = prehead.next;
 		//prehead就是尾节点

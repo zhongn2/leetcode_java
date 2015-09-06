@@ -19,7 +19,7 @@ public class Solution {
         //copy next and random reference
         node = head;
         while(node != null){
-            map.get(node).next = map.get(node.next);
+            map.get(node).next = map.get(node.next); //ÐÂ1 £­£¾ÐÂ£²
             map.get(node).random = map.get(node.random);
             node = node.next;
         }

@@ -7,6 +7,8 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
+ //每一层的数是用arraylist level来存储，一层访问之后，level必须重新初始化，否则里面的内容会继续保存。
+ // Qsize 基本上就是相当于了每层的节点个数， 因为有新加入的，又有poll出去的
 public class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
@@ -32,8 +34,14 @@ public class Solution {
             }
             res.add(level);
         }
-      
-        return res;
-        
+        return res;        
     }
 }
+
+/*
+	FOLLOW-UP: 当我们需要bottom-up打印出tree的时候，则每次插入的位置都为0即可。
+	res.add(0, level)
+	C++当中，我们可以利用std::reverse(level.begin(), level.end());
+
+
+*/

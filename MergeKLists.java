@@ -34,12 +34,7 @@ public class Solution {
             }
             node = node.next;
         }
-        
-        if(l1 != null){
-            node.next = l1;
-        }else{
-            node.next = l2;
-        }
+        node.next = (l1 == null) ? l1 : l2;
         
         return dummy.next;
   

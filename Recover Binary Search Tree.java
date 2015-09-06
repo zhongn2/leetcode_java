@@ -17,7 +17,7 @@ public class Solution {
     public void inorderTraversal(TreeNode currnode){
         if(currnode == null) return;
         // find left side
-        inorderTraversal(currnode.left);
+        inorderTraversal(currnode.left); //这里的迭代将currnode 移动到了最左边的节点，接着往上回溯
         // pre node is greater than current node
         if(pre.val > currnode.val){
             if(first == null){

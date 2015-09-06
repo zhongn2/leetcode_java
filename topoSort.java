@@ -3,11 +3,10 @@
  * each node relies on the previous node
  * we use BFS to search for each node 
  * @params: inCount 表示的是每个点的入度
- * 			outCount 表示的是每个点的初度
  * 算法核心：找到入度为0的每个点，然后继续BFS，去找到该点block的其他的点，然后让其他的点的入度-1
  * 		 如果该点的入度为0了，就把该点加入到队列里面，所以队列里面的元素就是拓扑排序的顺序，如果为空
  *		 说明不存在拓扑排序
- * 
+ * 如果graph里面存在cycle，很明显不存在拓扑顺序
  * 
  * 
  */
@@ -64,3 +63,7 @@ public class toposort {
 		  }
 
 }
+
+
+// DFS
+

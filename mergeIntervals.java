@@ -15,7 +15,7 @@ public class Solution {
        Collections.sort(intervals, new IntervalComparator());
        ArrayList<Interval> rst = new ArrayList<Interval>();
        Interval first = intervals.get(0);
-       Interval tmp = new Interval();
+       
        
        for(int i = 1; i < intervals.size(); i++){
            Interval curr = intervals.get(i);

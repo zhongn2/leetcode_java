@@ -39,7 +39,7 @@ public class Solution {
 		while( node != null){
 			TreeNode tmp = node.left;	// 存下左侧信息
 			node.left = newRight;		// 更新左侧
-			newRight = node.right;
+			newRight = node.right; 		//更新下一个节点的right
 			node.right = parent;		// 更新右侧
 			parent = node;				// 记录当年节点的父节点
 			node = tmp;					// 往左侧移动
