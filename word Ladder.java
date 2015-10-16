@@ -1,6 +1,7 @@
 // every time there is only one character could be changed
 // so emunation could be a good way to reduce the time complexcity
 // if we don't know how many changes it could be, we have search for each word in dict
+// http://rangerway.com/way/leetcode-word-ladder-ii/
 public class Solution {
     public int ladderLength(String start, String end, Set<String> dict) {
         if(dict == null | start == null || end == null){

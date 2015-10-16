@@ -26,6 +26,8 @@ public class Solution {
             }
         }
         //check sub-matrix
+		//每个cell里面是3*3 我们需要check，每次移动i, j 是原来的3倍
+		//所以里层的指针才是board里面的参数
         for(int i = 0; i < 3;i++){
             for(int j = 0; j < 3; j++){
                  HashSet<Character> set = new HashSet<Character>();

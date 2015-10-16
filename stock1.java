@@ -13,14 +13,18 @@ public class Solution {
         
         int profit = 0;
         int min = prices[0];
+        int buy = 0;
         
         for(int i = 1; i < prices.length; i++){
-            min = Math.min(min, prices[i]);
+            if( min > prices[i]){
+                buy = i;
+                min = prices[i];
+            }
             profit = Math.max(profit, prices[i] - min);
         }
+        
         return profit;
     }
-}
 
 /*
 	第二个stock是说无论几次，只要赚钱我就买卖。
