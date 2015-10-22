@@ -34,22 +34,25 @@ public class Solution {
 public class Solution {
     public List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> returnList = new ArrayList<List<Integer>>();
-	returnList.add(new ArrayList<Integer>()); // result
- 
-	for (int i = 0; i < nums.length; i++) { // a loop
-		Set<ArrayList<Integer>> currentSet = new HashSet<ArrayList<Integer>>();
-		for (List<Integer> l : returnList) {
-			for (int j = 0; j < l.size() + 1; j++) {
-				l.add(j, nums[i]);
-				ArrayList<Integer> T = new ArrayList<Integer>(l);
-				l.remove(j);
-				currentSet.add(T);
+		returnList.add(new ArrayList<Integer>()); // result
+	 
+		for (int i = 0; i < nums.length; i++) { // a loop
+		
+			Set<ArrayList<Integer>> currentSet = new HashSet<ArrayList<Integer>>();
+			// l 这里需要remove 每次加入的num
+			//比如 num = {1, 1, 2, 3}; 加入第一个num 1后，每次尝试加入剩下的数
+			for (List<Integer> l : returnList) {
+				for (int j = 0; j < l.size() + 1; j++) {
+					l.add(j, nums[i]);
+					ArrayList<Integer> T = new ArrayList<Integer>(l);
+					l.remove(j);
+					currentSet.add(T);
+				}
 			}
+			returnList = new ArrayList<List<Integer>>(currentSet);
 		}
-		returnList = new ArrayList<List<Integer>>(currentSet);
-	}
- 
-	return returnList;
-    }
+	 
+		return returnList;
+		}
 }
 

@@ -4,6 +4,8 @@ public class Solution {
      * @param target: A string
      * @return: A string denote the minimum window
      *          Return "" if there is no such a string
+	 *  source :A|| A B D C|| S F (B N A C)
+	 *  target: A B C
      */
     public String minWindow(String source, String target) {
         // write your code
