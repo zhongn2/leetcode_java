@@ -25,7 +25,27 @@ public class Solution {
                 node = node.right;
             }
         }
-        return res;
-        
+        return res;   
     }
 }
+
+//preoder traversal
+public class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> tree = new ArrayList<Integer>();
+        if(root == null) return tree;
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        stack.push(root);
+        
+        while(!stack.isEmpty()){
+            TreeNode top = stack.pop();
+            tree.add(top.val);
+            
+            if(top.right != null) stack.push(top.right);
+            if(top.left != null) stack.push(top.left);
+            
+        }
+        return tree;
+        
+        
+    }

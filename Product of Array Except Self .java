@@ -17,10 +17,11 @@ public class Solution {
         
         int temp = 1;
         result[0] = temp;
-        
+        //temp 的作用是节约空间
         for(int i = 1; i < len; i++){
             temp *= nums[i-1];
             result[i] = temp;
+			// solution 2: result[i] = result[i-1] * nums[i-1];
         }
         
         temp = 1;

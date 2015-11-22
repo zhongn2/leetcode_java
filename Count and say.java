@@ -13,6 +13,7 @@ public class Solution {
         for(int i = 1; i < n; i++){
             StringBuilder sb = new StringBuilder();
             int count = 1;
+			//这部分相当于从左往右扫，但是不包括最后index
             for(int j = 1; j < res.length(); j++){
                 if(res.charAt(j) == res.charAt(j-1)){
                     count++;
