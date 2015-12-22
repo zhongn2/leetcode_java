@@ -1,4 +1,4 @@
-if(s == null) return 0;
+		if(s == null) return 0;
 		Stack<Integer> stack = new Stack<>();
 		int result = 0;
 		int sign = 1;
@@ -31,3 +31,34 @@ if(s == null) return 0;
 			}
 		}
 		return result;
+		
+//solution 2:
+public static int calculatorI(String s){
+		if (s == null || s.length() == 0) {
+			return 0;
+		}
+		Stack<Integer> stack = new Stack<>(); // used to store the signs, when meets with (, the sign should 
+		int result = 0, sign = 1, number = 0;
+		stack.push(sign);
+		
+		for(char c : s.toCharArray()){
+			if (Character.isDigit(c)) {
+				number = number * 10 + c - '0';
+			}else if (c == '+' || c == '-') {
+				result += sign * number * stack.peek();
+				number = 0;
+				sign = (c == '+' ? 1 : -1);
+			}else if (c == '(') {
+				stack.push(sign * stack.peek());
+				sign = 1;
+			}else if (c == ')') {
+				result += stack.pop() * sign * number;
+				number = 0;
+				sign = 1;
+			}
+		}
+		if (number != 0) {
+			result += number * sign;
+		}
+		return result;
+	}

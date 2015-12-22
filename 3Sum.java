@@ -9,6 +9,7 @@ public class Solution {
         
         for(int i = 0; i < len - 2; i++){
             // remove duplicate
+			//一般比较两个元素是否相等，用num[i] == nums[i-1]这样
             if(i != 0 && num[i] == num[i - 1]){ // we need to compare the curr element with previous element
                 continue;
             }

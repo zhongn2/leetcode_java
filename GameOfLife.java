@@ -1,3 +1,19 @@
+/*
+
+我一开始就想当然的用了个二维int矩阵做参数。 
+然后他memory overhead是什么，我就说我m*n*4。 
+问能不能省，我就说其实不需要用int存状态，用两个bit就可以了。 
+又问如果还要再省一点呢？我就说，如果要操作的点不太多的话，那就不要存矩阵了，就存存要修改的点的坐标。 
+然后又问怎么做，我才意识到他是想说参数其实不必用矩阵，
+就用一个list of coordinates，然后就说如果是sparse矩阵的话就只扫一下live的点，
+然后看看它和它neighbor在下一轮是什么状态就好了
+
+
+
+*/
+
+
+
 public class Solution {
     public void gameOfLife(int[][] board) {
        if(board == null || board[0].length ==0) return;
